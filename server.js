@@ -5,7 +5,8 @@ const port = 3000
 const postsRouter = require("./router/postsRoutes")
 //con funxione USE indico a express di attaccare le rotte all'app principale
 app.use("/api/posts", postsRouter)
-
+//asset statici 
+app.use(express.static("public"));
 app.get('/', (req, res) => {
     res.send('Hello World!')
 })
@@ -14,4 +15,4 @@ app.listen(port, () => {
     console.log(`Example app listening on port ${port}`)
 })
 
-app.use(express.static("public"));
+
