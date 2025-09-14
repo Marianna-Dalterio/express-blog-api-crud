@@ -3,6 +3,8 @@ const app = express()
 const port = 3000
 //importo il file che contiene le rotte
 const postsRouter = require("./router/postsRoutes")
+//body parser
+app.use(express.json());
 //con funxione USE indico a express di attaccare le rotte all'app principale
 app.use("/api/posts", postsRouter)
 //asset statici 
