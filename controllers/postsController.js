@@ -1,7 +1,15 @@
 const posts = require("../data/posts")
 // scrivo la logica delle rotte sotto forma di variabile che poi esporto
 const index = (req, res) => {
-    res.json(posts)
+    //all'inizio la lista di post filtrata corrisponde a quella originale
+    let filteredPost = posts;
+    //se la richiesta contiene un filtro, allora filtriamo l'array di posts
+    if (req.query.tags) {
+        filteredPost = posts.filter(item => item.tags.includes(req.query.tags));
+
+    }
+    //restituiamo la variabile filteredPost
+    res.json(filteredPost)
 };
 const create = (req, res) => {
     // res.send("Creazione nuovo post")
