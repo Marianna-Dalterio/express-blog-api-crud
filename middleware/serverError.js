@@ -1,0 +1,1 @@
+//Se viene generato un errore, un middleware si occuperà di rispondere con un messaggio e uno status appropriato.
