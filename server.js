@@ -1,6 +1,10 @@
 const express = require("express")
 const app = express()
 const port = 3000
+//importo il middleware not found
+const notFound = require("./middleware/notFound");
+//importo il middleware serverError
+const serverError = require("./middleware/serverError");
 //importo il file che contiene le rotte
 const postsRouter = require("./router/postsRoutes")
 //body parser
@@ -17,4 +21,8 @@ app.listen(port, () => {
     console.log(`Example app listening on port ${port}`)
 })
 
+//server error middleware
+app.use(serverError);
+//404 middleware
+app.use(notFound)
 
